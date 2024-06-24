@@ -18,14 +18,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: fabasoad/data-format-converter-action@v0
+      - name: Generate YAML Output
+        uses: fabasoad/data-format-converter-action@v0
         id: json2yaml
         with:
           input: "docs/${{ env.FILE_NAME }}.json"
           from: "json"
           to: "yaml"
-      - name: Print result
-        run: echo "${{ steps.json2yaml.outputs.output }}"
       - name: Save YAML to File
         run: |
           echo "${{ steps.json2yaml.outputs.output }}" > "docs/${{ env.FILE_NAME }}.yaml"
