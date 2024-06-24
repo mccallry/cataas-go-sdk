@@ -12,6 +12,7 @@ env:
   USER_ID: "mccallry"
   REPO_ID: "cataas-go-sdk"
   GEN_DIR: go-client
+  GO_VERSION: 1.18.0
 
 permissions: write-all
 
@@ -45,6 +46,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Add Go to ENV
+        uses: actions/setup-go@v5
+        with:
+          go-version: ">=${{ env.GO_VERSION }}"
       - name: Generate Go Client
         uses: openapi-generators/openapitools-generator-action@v1
         with:
@@ -55,6 +60,10 @@ jobs:
         run: |
           mv -v ./${{ env.GEN_DIR }}/README.md ./README.GEN.md
           mv -v ./${{ env.GEN_DIR }}/* ./
+      - name: Go Tidy
+        run: go mod tidy
+      - name: Format Go Code
+        run: gofmt -w -s .
       - name: Commit Generated SDK Files
         uses: EndBug/add-and-commit@v9
         with:
