@@ -81,8 +81,8 @@ func (r ApiCatGetRequest) Blur(blur int32) ApiCatGetRequest {
 }
 
 // Red
-func (r ApiCatGetRequest) R(r int32) ApiCatGetRequest {
-	r.r = &r
+func (r ApiCatGetRequest) R(red int32) ApiCatGetRequest {
+	r.r = &red
 	return r
 }
 
@@ -364,8 +364,8 @@ func (r ApiCatGetTextRequest) Blur(blur int32) ApiCatGetTextRequest {
 }
 
 // Red
-func (r ApiCatGetTextRequest) R(r int32) ApiCatGetTextRequest {
-	r.r = &r
+func (r ApiCatGetTextRequest) R(red int32) ApiCatGetTextRequest {
+	r.r = &red
 	return r
 }
 
@@ -648,8 +648,8 @@ func (r ApiCatRandomRequest) Blur(blur int32) ApiCatRandomRequest {
 }
 
 // Red
-func (r ApiCatRandomRequest) R(r int32) ApiCatRandomRequest {
-	r.r = &r
+func (r ApiCatRandomRequest) R(red int32) ApiCatRandomRequest {
+	r.r = &red
 	return r
 }
 
@@ -903,8 +903,8 @@ func (r ApiCatRandomTagRequest) Blur(blur int32) ApiCatRandomTagRequest {
 }
 
 // Red
-func (r ApiCatRandomTagRequest) R(r int32) ApiCatRandomTagRequest {
-	r.r = &r
+func (r ApiCatRandomTagRequest) R(red int32) ApiCatRandomTagRequest {
+	r.r = &red
 	return r
 }
 
@@ -1186,8 +1186,8 @@ func (r ApiCatRandomTagTextRequest) Blur(blur int32) ApiCatRandomTagTextRequest 
 }
 
 // Red
-func (r ApiCatRandomTagTextRequest) R(r int32) ApiCatRandomTagTextRequest {
-	r.r = &r
+func (r ApiCatRandomTagTextRequest) R(red int32) ApiCatRandomTagTextRequest {
+	r.r = &red
 	return r
 }
 
@@ -1495,8 +1495,8 @@ func (r ApiCatRandomTextRequest) Blur(blur int32) ApiCatRandomTextRequest {
 }
 
 // Red
-func (r ApiCatRandomTextRequest) R(r int32) ApiCatRandomTextRequest {
-	r.r = &r
+func (r ApiCatRandomTextRequest) R(red int32) ApiCatRandomTextRequest {
+	r.r = &red
 	return r
 }
 

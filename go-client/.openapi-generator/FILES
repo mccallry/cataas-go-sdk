@@ -1,5 +1,3 @@
-.gitignore
-.travis.yml
 README.md
 api/openapi.yaml
 api_admin.go
@@ -26,7 +24,6 @@ docs/SecurityAPI.md
 docs/SignIn.md
 docs/SignUp.md
 docs/Token.md
-git_push.sh
 go.mod
 go.sum
 model_admin_cat.go
