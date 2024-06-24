@@ -1,4 +1,4 @@
-name: Convert JSON to YAML
+name: Generate Go SDK
 
 on:
   push:
@@ -10,6 +10,7 @@ env:
   FILE_NAME: "cataas"
 
 permissions: write-all
+
 jobs:
   json-to-yaml:
     runs-on: ubuntu-latest
