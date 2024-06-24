@@ -19,15 +19,14 @@ import (
 	"strings"
 )
 
-
 // AdminAPIService AdminAPI service
 type AdminAPIService service
 
 type ApiAdminCatsBrowseRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminAPIService
-	limit *int32
-	skip *int32
+	limit      *int32
+	skip       *int32
 }
 
 func (r ApiAdminCatsBrowseRequest) Limit(limit int32) ApiAdminCatsBrowseRequest {
@@ -49,24 +48,25 @@ AdminCatsBrowse Method for AdminCatsBrowse
 
 Browse cats
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAdminCatsBrowseRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAdminCatsBrowseRequest
 */
 func (a *AdminAPIService) AdminCatsBrowse(ctx context.Context) ApiAdminCatsBrowseRequest {
 	return ApiAdminCatsBrowseRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []AdminCatsBrowse200ResponseInner
+//
+//	@return []AdminCatsBrowse200ResponseInner
 func (a *AdminAPIService) AdminCatsBrowseExecute(r ApiAdminCatsBrowseRequest) ([]AdminCatsBrowse200ResponseInner, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []AdminCatsBrowse200ResponseInner
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AdminCatsBrowse200ResponseInner
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.AdminCatsBrowse")
@@ -141,9 +141,9 @@ func (a *AdminAPIService) AdminCatsBrowseExecute(r ApiAdminCatsBrowseRequest) ([
 }
 
 type ApiAdminCatsDeleteRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminAPIService
-	id string
+	id         string
 }
 
 func (r ApiAdminCatsDeleteRequest) Execute() (*http.Response, error) {
@@ -155,24 +155,24 @@ AdminCatsDelete Method for AdminCatsDelete
 
 Delete cat
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiAdminCatsDeleteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiAdminCatsDeleteRequest
 */
 func (a *AdminAPIService) AdminCatsDelete(ctx context.Context, id string) ApiAdminCatsDeleteRequest {
 	return ApiAdminCatsDeleteRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIService) AdminCatsDeleteExecute(r ApiAdminCatsDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.AdminCatsDelete")
@@ -233,9 +233,9 @@ func (a *AdminAPIService) AdminCatsDeleteExecute(r ApiAdminCatsDeleteRequest) (*
 }
 
 type ApiAdminCatsEditRequest struct {
-	ctx context.Context
-	ApiService *AdminAPIService
-	id string
+	ctx                  context.Context
+	ApiService           *AdminAPIService
+	id                   string
 	adminCatsEditRequest *AdminCatsEditRequest
 }
 
@@ -253,24 +253,24 @@ AdminCatsEdit Method for AdminCatsEdit
 
 Activate cat
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiAdminCatsEditRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiAdminCatsEditRequest
 */
 func (a *AdminAPIService) AdminCatsEdit(ctx context.Context, id string) ApiAdminCatsEditRequest {
 	return ApiAdminCatsEditRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIService) AdminCatsEditExecute(r ApiAdminCatsEditRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPatch
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.AdminCatsEdit")
@@ -333,9 +333,9 @@ func (a *AdminAPIService) AdminCatsEditExecute(r ApiAdminCatsEditRequest) (*http
 }
 
 type ApiAdminCatsValidateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminAPIService
-	id string
+	id         string
 }
 
 func (r ApiAdminCatsValidateRequest) Execute() (*http.Response, error) {
@@ -347,24 +347,24 @@ AdminCatsValidate Method for AdminCatsValidate
 
 Activate cat
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiAdminCatsValidateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiAdminCatsValidateRequest
 */
 func (a *AdminAPIService) AdminCatsValidate(ctx context.Context, id string) ApiAdminCatsValidateRequest {
 	return ApiAdminCatsValidateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *AdminAPIService) AdminCatsValidateExecute(r ApiAdminCatsValidateRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AdminAPIService.AdminCatsValidate")

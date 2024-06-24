@@ -18,13 +18,12 @@ import (
 	"net/url"
 )
 
-
 // SecurityAPIService SecurityAPI service
 type SecurityAPIService service
 
 type ApiApiSecuritySignInRequest struct {
-	ctx context.Context
-	ApiService *SecurityAPIService
+	ctx                      context.Context
+	ApiService               *SecurityAPIService
 	apiSecuritySignInRequest *ApiSecuritySignInRequest
 }
 
@@ -40,24 +39,25 @@ func (r ApiApiSecuritySignInRequest) Execute() (*ApiSecuritySignIn200Response, *
 /*
 ApiSecuritySignIn Method for ApiSecuritySignIn
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiSecuritySignInRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiApiSecuritySignInRequest
 */
 func (a *SecurityAPIService) ApiSecuritySignIn(ctx context.Context) ApiApiSecuritySignInRequest {
 	return ApiApiSecuritySignInRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiSecuritySignIn200Response
+//
+//	@return ApiSecuritySignIn200Response
 func (a *SecurityAPIService) ApiSecuritySignInExecute(r ApiApiSecuritySignInRequest) (*ApiSecuritySignIn200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiSecuritySignIn200Response
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiSecuritySignIn200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecurityAPIService.ApiSecuritySignIn")
@@ -128,8 +128,8 @@ func (a *SecurityAPIService) ApiSecuritySignInExecute(r ApiApiSecuritySignInRequ
 }
 
 type ApiApiSecuritySignUpRequest struct {
-	ctx context.Context
-	ApiService *SecurityAPIService
+	ctx                      context.Context
+	ApiService               *SecurityAPIService
 	apiSecuritySignUpRequest *ApiSecuritySignUpRequest
 }
 
@@ -145,22 +145,22 @@ func (r ApiApiSecuritySignUpRequest) Execute() (*http.Response, error) {
 /*
 ApiSecuritySignUp Method for ApiSecuritySignUp
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiSecuritySignUpRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiApiSecuritySignUpRequest
 */
 func (a *SecurityAPIService) ApiSecuritySignUp(ctx context.Context) ApiApiSecuritySignUpRequest {
 	return ApiApiSecuritySignUpRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *SecurityAPIService) ApiSecuritySignUpExecute(r ApiApiSecuritySignUpRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPost
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecurityAPIService.ApiSecuritySignUp")

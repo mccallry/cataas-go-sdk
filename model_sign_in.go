@@ -20,8 +20,8 @@ var _ MappedNullable = &SignIn{}
 
 // SignIn struct for SignIn
 type SignIn struct {
-	Username *string `json:"username,omitempty"`
-	Password string `json:"password"`
+	Username             *string `json:"username,omitempty"`
+	Password             string  `json:"password"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -102,7 +102,7 @@ func (o *SignIn) SetPassword(v string) {
 }
 
 func (o SignIn) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -136,10 +136,10 @@ func (o *SignIn) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -201,5 +201,3 @@ func (v *NullableSignIn) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

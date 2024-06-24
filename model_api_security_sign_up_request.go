@@ -20,10 +20,10 @@ var _ MappedNullable = &ApiSecuritySignUpRequest{}
 
 // ApiSecuritySignUpRequest struct for ApiSecuritySignUpRequest
 type ApiSecuritySignUpRequest struct {
-	Username *string `json:"username,omitempty"`
-	Password string `json:"password"`
-	Email *string `json:"email,omitempty"`
-	Secret string `json:"secret"`
+	Username             *string `json:"username,omitempty"`
+	Password             string  `json:"password"`
+	Email                *string `json:"email,omitempty"`
+	Secret               string  `json:"secret"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -161,7 +161,7 @@ func (o *ApiSecuritySignUpRequest) SetSecret(v string) {
 }
 
 func (o ApiSecuritySignUpRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -200,10 +200,10 @@ func (o *ApiSecuritySignUpRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -267,5 +267,3 @@ func (v *NullableApiSecuritySignUpRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

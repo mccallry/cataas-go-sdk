@@ -19,7 +19,7 @@ var _ MappedNullable = &ApiCount200Response{}
 
 // ApiCount200Response struct for ApiCount200Response
 type ApiCount200Response struct {
-	Count *float32 `json:"count,omitempty"`
+	Count                *float32 `json:"count,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -75,7 +75,7 @@ func (o *ApiCount200Response) SetCount(v float32) {
 }
 
 func (o ApiCount200Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -151,5 +151,3 @@ func (v *NullableApiCount200Response) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

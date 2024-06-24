@@ -16,34 +16,33 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
+	"strings"
 )
-
 
 // CatsAPIService CatsAPI service
 type CatsAPIService service
 
 type ApiCatGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *CatsAPIService
-	id string
-	type_ *string
-	filter *string
-	fit *string
-	position *string
-	width *int32
-	height *int32
-	blur *int32
-	r *int32
-	g *int32
-	b *int32
+	id         string
+	type_      *string
+	filter     *string
+	fit        *string
+	position   *string
+	width      *int32
+	height     *int32
+	blur       *int32
+	r          *int32
+	g          *int32
+	b          *int32
 	brightness *float32
 	saturation *float32
-	hue *int32
-	lightness *int32
-	html *bool
-	json *bool
+	hue        *int32
+	lightness  *int32
+	html       *bool
+	json       *bool
 }
 
 func (r ApiCatGetRequest) Type_(type_ string) ApiCatGetRequest {
@@ -142,26 +141,27 @@ CatGet Method for CatGet
 
 Get cat by id
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiCatGetRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiCatGetRequest
 */
 func (a *CatsAPIService) CatGet(ctx context.Context, id string) ApiCatGetRequest {
 	return ApiCatGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return *os.File
+//
+//	@return *os.File
 func (a *CatsAPIService) CatGetExecute(r ApiCatGetRequest) (*os.File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *os.File
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatsAPIService.CatGet")
@@ -282,30 +282,30 @@ func (a *CatsAPIService) CatGetExecute(r ApiCatGetRequest) (*os.File, *http.Resp
 }
 
 type ApiCatGetTextRequest struct {
-	ctx context.Context
-	ApiService *CatsAPIService
-	id string
-	text string
-	font *string
-	fontSize *int32
-	fontColor *string
+	ctx            context.Context
+	ApiService     *CatsAPIService
+	id             string
+	text           string
+	font           *string
+	fontSize       *int32
+	fontColor      *string
 	fontBackground *string
-	type_ *string
-	filter *string
-	fit *string
-	position *string
-	width *int32
-	height *int32
-	blur *int32
-	r *int32
-	g *int32
-	b *int32
-	brightness *float32
-	saturation *float32
-	hue *int32
-	lightness *int32
-	html *bool
-	json *bool
+	type_          *string
+	filter         *string
+	fit            *string
+	position       *string
+	width          *int32
+	height         *int32
+	blur           *int32
+	r              *int32
+	g              *int32
+	b              *int32
+	brightness     *float32
+	saturation     *float32
+	hue            *int32
+	lightness      *int32
+	html           *bool
+	json           *bool
 }
 
 func (r ApiCatGetTextRequest) Font(font string) ApiCatGetTextRequest {
@@ -424,28 +424,29 @@ CatGetText Method for CatGetText
 
 Get cat by id saying text
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @param text
- @return ApiCatGetTextRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@param text
+	@return ApiCatGetTextRequest
 */
 func (a *CatsAPIService) CatGetText(ctx context.Context, id string, text string) ApiCatGetTextRequest {
 	return ApiCatGetTextRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
-		text: text,
+		ctx:        ctx,
+		id:         id,
+		text:       text,
 	}
 }
 
 // Execute executes the request
-//  @return *os.File
+//
+//	@return *os.File
 func (a *CatsAPIService) CatGetTextExecute(r ApiCatGetTextRequest) (*os.File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *os.File
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatsAPIService.CatGetText")
@@ -591,24 +592,24 @@ func (a *CatsAPIService) CatGetTextExecute(r ApiCatGetTextRequest) (*os.File, *h
 }
 
 type ApiCatRandomRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *CatsAPIService
-	type_ *string
-	filter *string
-	fit *string
-	position *string
-	width *int32
-	height *int32
-	blur *int32
-	r *int32
-	g *int32
-	b *int32
+	type_      *string
+	filter     *string
+	fit        *string
+	position   *string
+	width      *int32
+	height     *int32
+	blur       *int32
+	r          *int32
+	g          *int32
+	b          *int32
 	brightness *float32
 	saturation *float32
-	hue *int32
-	lightness *int32
-	html *bool
-	json *bool
+	hue        *int32
+	lightness  *int32
+	html       *bool
+	json       *bool
 }
 
 func (r ApiCatRandomRequest) Type_(type_ string) ApiCatRandomRequest {
@@ -707,24 +708,25 @@ CatRandom Method for CatRandom
 
 Get a random cat
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCatRandomRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCatRandomRequest
 */
 func (a *CatsAPIService) CatRandom(ctx context.Context) ApiCatRandomRequest {
 	return ApiCatRandomRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return *os.File
+//
+//	@return *os.File
 func (a *CatsAPIService) CatRandomExecute(r ApiCatRandomRequest) (*os.File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *os.File
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatsAPIService.CatRandom")
@@ -844,25 +846,25 @@ func (a *CatsAPIService) CatRandomExecute(r ApiCatRandomRequest) (*os.File, *htt
 }
 
 type ApiCatRandomTagRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *CatsAPIService
-	tag string
-	type_ *string
-	filter *string
-	fit *string
-	position *string
-	width *int32
-	height *int32
-	blur *int32
-	r *int32
-	g *int32
-	b *int32
+	tag        string
+	type_      *string
+	filter     *string
+	fit        *string
+	position   *string
+	width      *int32
+	height     *int32
+	blur       *int32
+	r          *int32
+	g          *int32
+	b          *int32
 	brightness *float32
 	saturation *float32
-	hue *int32
-	lightness *int32
-	html *bool
-	json *bool
+	hue        *int32
+	lightness  *int32
+	html       *bool
+	json       *bool
 }
 
 func (r ApiCatRandomTagRequest) Type_(type_ string) ApiCatRandomTagRequest {
@@ -961,26 +963,27 @@ CatRandomTag Method for CatRandomTag
 
 Get random cat by tag
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tag
- @return ApiCatRandomTagRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tag
+	@return ApiCatRandomTagRequest
 */
 func (a *CatsAPIService) CatRandomTag(ctx context.Context, tag string) ApiCatRandomTagRequest {
 	return ApiCatRandomTagRequest{
 		ApiService: a,
-		ctx: ctx,
-		tag: tag,
+		ctx:        ctx,
+		tag:        tag,
 	}
 }
 
 // Execute executes the request
-//  @return *os.File
+//
+//	@return *os.File
 func (a *CatsAPIService) CatRandomTagExecute(r ApiCatRandomTagRequest) (*os.File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *os.File
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatsAPIService.CatRandomTag")
@@ -1101,30 +1104,30 @@ func (a *CatsAPIService) CatRandomTagExecute(r ApiCatRandomTagRequest) (*os.File
 }
 
 type ApiCatRandomTagTextRequest struct {
-	ctx context.Context
-	ApiService *CatsAPIService
-	tag string
-	text string
-	font *string
-	fontSize *int32
-	fontColor *string
+	ctx            context.Context
+	ApiService     *CatsAPIService
+	tag            string
+	text           string
+	font           *string
+	fontSize       *int32
+	fontColor      *string
 	fontBackground *string
-	type_ *string
-	filter *string
-	fit *string
-	position *string
-	width *int32
-	height *int32
-	blur *int32
-	r *int32
-	g *int32
-	b *int32
-	brightness *float32
-	saturation *float32
-	hue *int32
-	lightness *int32
-	html *bool
-	json *bool
+	type_          *string
+	filter         *string
+	fit            *string
+	position       *string
+	width          *int32
+	height         *int32
+	blur           *int32
+	r              *int32
+	g              *int32
+	b              *int32
+	brightness     *float32
+	saturation     *float32
+	hue            *int32
+	lightness      *int32
+	html           *bool
+	json           *bool
 }
 
 func (r ApiCatRandomTagTextRequest) Font(font string) ApiCatRandomTagTextRequest {
@@ -1243,28 +1246,29 @@ CatRandomTagText Method for CatRandomTagText
 
 Get random cat by tag saying text
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tag
- @param text
- @return ApiCatRandomTagTextRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tag
+	@param text
+	@return ApiCatRandomTagTextRequest
 */
 func (a *CatsAPIService) CatRandomTagText(ctx context.Context, tag string, text string) ApiCatRandomTagTextRequest {
 	return ApiCatRandomTagTextRequest{
 		ApiService: a,
-		ctx: ctx,
-		tag: tag,
-		text: text,
+		ctx:        ctx,
+		tag:        tag,
+		text:       text,
 	}
 }
 
 // Execute executes the request
-//  @return *os.File
+//
+//	@return *os.File
 func (a *CatsAPIService) CatRandomTagTextExecute(r ApiCatRandomTagTextRequest) (*os.File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *os.File
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatsAPIService.CatRandomTagText")
@@ -1410,29 +1414,29 @@ func (a *CatsAPIService) CatRandomTagTextExecute(r ApiCatRandomTagTextRequest) (
 }
 
 type ApiCatRandomTextRequest struct {
-	ctx context.Context
-	ApiService *CatsAPIService
-	text string
-	font *string
-	fontSize *int32
-	fontColor *string
+	ctx            context.Context
+	ApiService     *CatsAPIService
+	text           string
+	font           *string
+	fontSize       *int32
+	fontColor      *string
 	fontBackground *string
-	type_ *string
-	filter *string
-	fit *string
-	position *string
-	width *int32
-	height *int32
-	blur *int32
-	r *int32
-	g *int32
-	b *int32
-	brightness *float32
-	saturation *float32
-	hue *int32
-	lightness *int32
-	html *bool
-	json *bool
+	type_          *string
+	filter         *string
+	fit            *string
+	position       *string
+	width          *int32
+	height         *int32
+	blur           *int32
+	r              *int32
+	g              *int32
+	b              *int32
+	brightness     *float32
+	saturation     *float32
+	hue            *int32
+	lightness      *int32
+	html           *bool
+	json           *bool
 }
 
 func (r ApiCatRandomTextRequest) Font(font string) ApiCatRandomTextRequest {
@@ -1551,26 +1555,27 @@ CatRandomText Method for CatRandomText
 
 Get random cat saying text
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param text
- @return ApiCatRandomTextRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param text
+	@return ApiCatRandomTextRequest
 */
 func (a *CatsAPIService) CatRandomText(ctx context.Context, text string) ApiCatRandomTextRequest {
 	return ApiCatRandomTextRequest{
 		ApiService: a,
-		ctx: ctx,
-		text: text,
+		ctx:        ctx,
+		text:       text,
 	}
 }
 
 // Execute executes the request
-//  @return *os.File
+//
+//	@return *os.File
 func (a *CatsAPIService) CatRandomTextExecute(r ApiCatRandomTextRequest) (*os.File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *os.File
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CatsAPIService.CatRandomText")

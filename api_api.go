@@ -18,16 +18,15 @@ import (
 	"net/url"
 )
 
-
 // APIAPIService APIAPI service
 type APIAPIService service
 
 type ApiApiCatsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *APIAPIService
-	limit *float32
-	skip *float32
-	tags *string
+	limit      *float32
+	skip       *float32
+	tags       *string
 }
 
 func (r ApiApiCatsRequest) Limit(limit float32) ApiApiCatsRequest {
@@ -54,24 +53,25 @@ ApiCats Method for ApiCats
 
 Will return all cats
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiCatsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiApiCatsRequest
 */
 func (a *APIAPIService) ApiCats(ctx context.Context) ApiApiCatsRequest {
 	return ApiApiCatsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CatRandom200Response
+//
+//	@return []CatRandom200Response
 func (a *APIAPIService) ApiCatsExecute(r ApiApiCatsRequest) ([]CatRandom200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []CatRandom200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []CatRandom200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "APIAPIService.ApiCats")
@@ -155,7 +155,7 @@ func (a *APIAPIService) ApiCatsExecute(r ApiApiCatsRequest) ([]CatRandom200Respo
 }
 
 type ApiApiCountRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *APIAPIService
 }
 
@@ -168,24 +168,25 @@ ApiCount Method for ApiCount
 
 Count how many cat
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiCountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiApiCountRequest
 */
 func (a *APIAPIService) ApiCount(ctx context.Context) ApiApiCountRequest {
 	return ApiApiCountRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ApiCount200Response
+//
+//	@return ApiCount200Response
 func (a *APIAPIService) ApiCountExecute(r ApiApiCountRequest) (*ApiCount200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiCount200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiCount200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "APIAPIService.ApiCount")
@@ -254,7 +255,7 @@ func (a *APIAPIService) ApiCountExecute(r ApiApiCountRequest) (*ApiCount200Respo
 }
 
 type ApiApiTagsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *APIAPIService
 }
 
@@ -267,24 +268,25 @@ ApiTags Method for ApiTags
 
 Will return all tags
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiApiTagsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiApiTagsRequest
 */
 func (a *APIAPIService) ApiTags(ctx context.Context) ApiApiTagsRequest {
 	return ApiApiTagsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []string
+//
+//	@return []string
 func (a *APIAPIService) ApiTagsExecute(r ApiApiTagsRequest) ([]string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []string
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "APIAPIService.ApiTags")

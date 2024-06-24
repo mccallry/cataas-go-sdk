@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/mccallry/cataas-go-sdk"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/mccallry/cataas-go-sdk"
 )
 
 func Test_openapi_AdminAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_AdminAPIService(t *testing.T) {
 
 	t.Run("Test AdminAPIService AdminCatsBrowse", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AdminAPI.AdminCatsBrowse(context.Background()).Execute()
 
@@ -36,7 +36,7 @@ func Test_openapi_AdminAPIService(t *testing.T) {
 
 	t.Run("Test AdminAPIService AdminCatsDelete", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -49,7 +49,7 @@ func Test_openapi_AdminAPIService(t *testing.T) {
 
 	t.Run("Test AdminAPIService AdminCatsEdit", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -62,7 +62,7 @@ func Test_openapi_AdminAPIService(t *testing.T) {
 
 	t.Run("Test AdminAPIService AdminCatsValidate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 

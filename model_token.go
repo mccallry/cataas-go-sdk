@@ -19,7 +19,7 @@ var _ MappedNullable = &Token{}
 
 // Token struct for Token
 type Token struct {
-	Token *string `json:"token,omitempty"`
+	Token                *string `json:"token,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -75,7 +75,7 @@ func (o *Token) SetToken(v string) {
 }
 
 func (o Token) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -151,5 +151,3 @@ func (v *NullableToken) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

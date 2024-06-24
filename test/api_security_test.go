@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/mccallry/cataas-go-sdk"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/mccallry/cataas-go-sdk"
 )
 
 func Test_openapi_SecurityAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_SecurityAPIService(t *testing.T) {
 
 	t.Run("Test SecurityAPIService ApiSecuritySignIn", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.SecurityAPI.ApiSecuritySignIn(context.Background()).Execute()
 
@@ -36,7 +36,7 @@ func Test_openapi_SecurityAPIService(t *testing.T) {
 
 	t.Run("Test SecurityAPIService ApiSecuritySignUp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.SecurityAPI.ApiSecuritySignUp(context.Background()).Execute()
 

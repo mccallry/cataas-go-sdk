@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/mccallry/cataas-go-sdk"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/mccallry/cataas-go-sdk"
 )
 
 func Test_openapi_APIAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_APIAPIService(t *testing.T) {
 
 	t.Run("Test APIAPIService ApiCats", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.APIAPI.ApiCats(context.Background()).Execute()
 
@@ -36,7 +36,7 @@ func Test_openapi_APIAPIService(t *testing.T) {
 
 	t.Run("Test APIAPIService ApiCount", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.APIAPI.ApiCount(context.Background()).Execute()
 
@@ -48,7 +48,7 @@ func Test_openapi_APIAPIService(t *testing.T) {
 
 	t.Run("Test APIAPIService ApiTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.APIAPI.ApiTags(context.Background()).Execute()
 

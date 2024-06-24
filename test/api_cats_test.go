@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/mccallry/cataas-go-sdk"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/mccallry/cataas-go-sdk"
 )
 
 func Test_openapi_CatsAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_CatsAPIService(t *testing.T) {
 
 	t.Run("Test CatsAPIService CatGet", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 
@@ -38,7 +38,7 @@ func Test_openapi_CatsAPIService(t *testing.T) {
 
 	t.Run("Test CatsAPIService CatGetText", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id string
 		var text string
@@ -53,7 +53,7 @@ func Test_openapi_CatsAPIService(t *testing.T) {
 
 	t.Run("Test CatsAPIService CatRandom", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.CatsAPI.CatRandom(context.Background()).Execute()
 
@@ -65,7 +65,7 @@ func Test_openapi_CatsAPIService(t *testing.T) {
 
 	t.Run("Test CatsAPIService CatRandomTag", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var tag string
 
@@ -79,7 +79,7 @@ func Test_openapi_CatsAPIService(t *testing.T) {
 
 	t.Run("Test CatsAPIService CatRandomTagText", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var tag string
 		var text string
@@ -94,7 +94,7 @@ func Test_openapi_CatsAPIService(t *testing.T) {
 
 	t.Run("Test CatsAPIService CatRandomText", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var text string
 
