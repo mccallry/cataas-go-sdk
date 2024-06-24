@@ -3,8 +3,12 @@ name: Convert JSON to YAML
 on:
   push:
     branches: [ "main" ]
-    paths: [ "docs/test.json" ]
+    paths: [ "docs/**.json" ]
   workflow_dispatch:
+
+env:
+  FILE_NAME: "test"
+
 permissions: write-all
 jobs:
   json-to-yaml:
@@ -16,14 +20,14 @@ jobs:
       - uses: fabasoad/data-format-converter-action@v0
         id: json2yaml
         with:
-          input: "docs/test.json"
+          input: "docs/${{ env.FILE_NAME }}.json"
           from: "json"
           to: "yaml"
       - name: Print result
         run: echo "${{ steps.json2yaml.outputs.output }}"
       - name: Save YAML to File
         run: |
-          echo "${{ steps.json2yaml.outputs.output }}" > "docs/test.yaml"
+          echo "${{ steps.json2yaml.outputs.output }}" > "docs/${{ env.FILE_NAME }}.yaml"
       - name: Commit Generated Files
         uses: EndBug/add-and-commit@v9
         with:
