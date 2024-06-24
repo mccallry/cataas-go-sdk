@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
 permissions: write-all
 jobs:
-  generate-go-client:
+  json-to-yaml:
     runs-on: ubuntu-latest
-    name: Generate Go Client
+    name: Convert JSON to YAML
     steps:
       - name: Checkout
         uses: actions/checkout@v4
