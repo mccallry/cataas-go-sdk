@@ -1,0 +1,1598 @@
+openapi: 3.0.3
+info:
+  description: Cat as a service (CATAAS) is a REST API to spread peace and love (or
+    not) thanks to cats.
+  title: Cat as a service (CATAAS)
+  version: 1.0.0
+servers:
+- url: https://cataas.com
+tags:
+- description: Cataas API
+  name: Cats
+- description: Public API
+  name: API
+- description: Security
+  name: Security
+- description: Admin API
+  name: Admin
+paths:
+  /admin/cats:
+    get:
+      description: Browse cats
+      operationId: admin:cats:browse
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/admin_cats_browse_200_response_inner'
+                type: array
+          description: List of cats
+      security:
+      - jwt: []
+      tags:
+      - Admin
+  /admin/cats/{id}/validate:
+    put:
+      description: Activate cat
+      operationId: admin:cats:validate
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Cat activated
+        "404":
+          description: Cat not found
+      security:
+      - jwt: []
+      tags:
+      - Admin
+  /admin/cats/{id}:
+    delete:
+      description: Delete cat
+      operationId: admin:cats:delete
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "203":
+          description: Cat deleted
+        "404":
+          description: Cat not found
+      security:
+      - jwt: []
+      tags:
+      - Admin
+    patch:
+      description: Activate cat
+      operationId: admin:cats:edit
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/admin_cats_edit_request'
+      responses:
+        "200":
+          description: Cat updated
+        "404":
+          description: Cat not found
+      security:
+      - jwt: []
+      tags:
+      - Admin
+  /cat:
+    get:
+      description: Get a random cat
+      operationId: cat:random
+      parameters:
+      - explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          enum:
+          - square
+          - medium
+          - small
+          - xsmall
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          enum:
+          - mono
+          - negate
+          - custom
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: fit
+        required: false
+        schema:
+          enum:
+          - cover
+          - contain
+          - fill
+          - inside
+          - outside
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: position
+        required: false
+        schema:
+          default: center
+          enum:
+          - top
+          - right top
+          - right
+          - right bottom
+          - bottom
+          - left bottom
+          - left
+          - left top
+          - center
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: width
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: height
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: blur
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Red
+        explode: true
+        in: query
+        name: r
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Green
+        explode: true
+        in: query
+        name: g
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Blue
+        explode: true
+        in: query
+        name: b
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Brightness multiplier
+        explode: true
+        in: query
+        name: brightness
+        required: false
+        schema:
+          format: float
+          type: number
+        style: form
+      - description: Saturation multiplier
+        explode: true
+        in: query
+        name: saturation
+        required: false
+        schema:
+          format: float
+          type: number
+        style: form
+      - description: Hue rotation in degrees
+        explode: true
+        in: query
+        name: hue
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Lightness addend
+        explode: true
+        in: query
+        name: lightness
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: html
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: json
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            image/*:
+              schema:
+                format: binary
+                type: string
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cat_random_200_response'
+          description: Cat returned
+      tags:
+      - Cats
+  /cat/{id}:
+    get:
+      description: Get cat by id
+      operationId: cat:get
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          enum:
+          - square
+          - medium
+          - small
+          - xsmall
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          enum:
+          - mono
+          - negate
+          - custom
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: fit
+        required: false
+        schema:
+          enum:
+          - cover
+          - contain
+          - fill
+          - inside
+          - outside
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: position
+        required: false
+        schema:
+          default: center
+          enum:
+          - top
+          - right top
+          - right
+          - right bottom
+          - bottom
+          - left bottom
+          - left
+          - left top
+          - center
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: width
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: height
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: blur
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Red
+        explode: true
+        in: query
+        name: r
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Green
+        explode: true
+        in: query
+        name: g
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Blue
+        explode: true
+        in: query
+        name: b
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Brightness multiplier
+        explode: true
+        in: query
+        name: brightness
+        required: false
+        schema:
+          format: float
+          type: number
+        style: form
+      - description: Saturation multiplier
+        explode: true
+        in: query
+        name: saturation
+        required: false
+        schema:
+          format: float
+          type: number
+        style: form
+      - description: Hue rotation in degrees
+        explode: true
+        in: query
+        name: hue
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Lightness addend
+        explode: true
+        in: query
+        name: lightness
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: html
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: json
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            image/*:
+              schema:
+                format: binary
+                type: string
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cat_random_200_response'
+          description: Cat returned
+        "404":
+          description: Cat not found
+      tags:
+      - Cats
+  /cat/{tag}:
+    get:
+      description: Get random cat by tag
+      operationId: cat:random:tag
+      parameters:
+      - explode: false
+        in: path
+        name: tag
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          enum:
+          - square
+          - medium
+          - small
+          - xsmall
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          enum:
+          - mono
+          - negate
+          - custom
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: fit
+        required: false
+        schema:
+          enum:
+          - cover
+          - contain
+          - fill
+          - inside
+          - outside
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: position
+        required: false
+        schema:
+          default: center
+          enum:
+          - top
+          - right top
+          - right
+          - right bottom
+          - bottom
+          - left bottom
+          - left
+          - left top
+          - center
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: width
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: height
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: blur
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Red
+        explode: true
+        in: query
+        name: r
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Green
+        explode: true
+        in: query
+        name: g
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Blue
+        explode: true
+        in: query
+        name: b
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Brightness multiplier
+        explode: true
+        in: query
+        name: brightness
+        required: false
+        schema:
+          format: float
+          type: number
+        style: form
+      - description: Saturation multiplier
+        explode: true
+        in: query
+        name: saturation
+        required: false
+        schema:
+          format: float
+          type: number
+        style: form
+      - description: Hue rotation in degrees
+        explode: true
+        in: query
+        name: hue
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Lightness addend
+        explode: true
+        in: query
+        name: lightness
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: html
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: json
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            image/*:
+              schema:
+                format: binary
+                type: string
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cat_random_200_response'
+          description: Cat returned
+      tags:
+      - Cats
+  /cat/says/{text}:
+    get:
+      description: Get random cat saying text
+      operationId: cat:random:text
+      parameters:
+      - explode: false
+        in: path
+        name: text
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: font
+        required: false
+        schema:
+          default: Impact
+          enum:
+          - Andale Mono
+          - Impact
+          - Arial
+          - Arial Black
+          - Comic Sans MS
+          - Courier New
+          - Georgia
+          - Times New Roman
+          - Verdana
+          - Webdings
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: fontSize
+        required: false
+        schema:
+          default: 30
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: fontColor
+        required: false
+        schema:
+          default: '#000'
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: fontBackground
+        required: false
+        schema:
+          default: none
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          enum:
+          - square
+          - medium
+          - small
+          - xsmall
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          enum:
+          - mono
+          - negate
+          - custom
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: fit
+        required: false
+        schema:
+          enum:
+          - cover
+          - contain
+          - fill
+          - inside
+          - outside
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: position
+        required: false
+        schema:
+          default: center
+          enum:
+          - top
+          - right top
+          - right
+          - right bottom
+          - bottom
+          - left bottom
+          - left
+          - left top
+          - center
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: width
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: height
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: blur
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Red
+        explode: true
+        in: query
+        name: r
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Green
+        explode: true
+        in: query
+        name: g
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Blue
+        explode: true
+        in: query
+        name: b
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Brightness multiplier
+        explode: true
+        in: query
+        name: brightness
+        required: false
+        schema:
+          format: float
+          type: number
+        style: form
+      - description: Saturation multiplier
+        explode: true
+        in: query
+        name: saturation
+        required: false
+        schema:
+          format: float
+          type: number
+        style: form
+      - description: Hue rotation in degrees
+        explode: true
+        in: query
+        name: hue
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Lightness addend
+        explode: true
+        in: query
+        name: lightness
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: html
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: json
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            image/*:
+              schema:
+                format: binary
+                type: string
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cat_random_200_response'
+          description: Cat returned
+      tags:
+      - Cats
+  /cat/{id}/says/{text}:
+    get:
+      description: Get cat by id saying text
+      operationId: cat:get:text
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: text
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: font
+        required: false
+        schema:
+          default: Impact
+          enum:
+          - Andale Mono
+          - Impact
+          - Arial
+          - Arial Black
+          - Comic Sans MS
+          - Courier New
+          - Georgia
+          - Times New Roman
+          - Verdana
+          - Webdings
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: fontSize
+        required: false
+        schema:
+          default: 30
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: fontColor
+        required: false
+        schema:
+          default: '#000'
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: fontBackground
+        required: false
+        schema:
+          default: none
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          enum:
+          - square
+          - medium
+          - small
+          - xsmall
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          enum:
+          - mono
+          - negate
+          - custom
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: fit
+        required: false
+        schema:
+          enum:
+          - cover
+          - contain
+          - fill
+          - inside
+          - outside
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: position
+        required: false
+        schema:
+          default: center
+          enum:
+          - top
+          - right top
+          - right
+          - right bottom
+          - bottom
+          - left bottom
+          - left
+          - left top
+          - center
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: width
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: height
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: blur
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Red
+        explode: true
+        in: query
+        name: r
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Green
+        explode: true
+        in: query
+        name: g
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Blue
+        explode: true
+        in: query
+        name: b
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Brightness multiplier
+        explode: true
+        in: query
+        name: brightness
+        required: false
+        schema:
+          format: float
+          type: number
+        style: form
+      - description: Saturation multiplier
+        explode: true
+        in: query
+        name: saturation
+        required: false
+        schema:
+          format: float
+          type: number
+        style: form
+      - description: Hue rotation in degrees
+        explode: true
+        in: query
+        name: hue
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Lightness addend
+        explode: true
+        in: query
+        name: lightness
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: html
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: json
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            image/*:
+              schema:
+                format: binary
+                type: string
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cat_random_200_response'
+          description: Cat returned
+        "404":
+          description: Cat not found
+      tags:
+      - Cats
+  /cat/{tag}/says/{text}:
+    get:
+      description: Get random cat by tag saying text
+      operationId: cat:random:tag:text
+      parameters:
+      - explode: false
+        in: path
+        name: tag
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: text
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: font
+        required: false
+        schema:
+          default: Impact
+          enum:
+          - Andale Mono
+          - Impact
+          - Arial
+          - Arial Black
+          - Comic Sans MS
+          - Courier New
+          - Georgia
+          - Times New Roman
+          - Verdana
+          - Webdings
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: fontSize
+        required: false
+        schema:
+          default: 30
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: fontColor
+        required: false
+        schema:
+          default: '#000'
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: fontBackground
+        required: false
+        schema:
+          default: none
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          enum:
+          - square
+          - medium
+          - small
+          - xsmall
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: filter
+        required: false
+        schema:
+          enum:
+          - mono
+          - negate
+          - custom
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: fit
+        required: false
+        schema:
+          enum:
+          - cover
+          - contain
+          - fill
+          - inside
+          - outside
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: position
+        required: false
+        schema:
+          default: center
+          enum:
+          - top
+          - right top
+          - right
+          - right bottom
+          - bottom
+          - left bottom
+          - left
+          - left top
+          - center
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: width
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: height
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: blur
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Red
+        explode: true
+        in: query
+        name: r
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Green
+        explode: true
+        in: query
+        name: g
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Blue
+        explode: true
+        in: query
+        name: b
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Brightness multiplier
+        explode: true
+        in: query
+        name: brightness
+        required: false
+        schema:
+          format: float
+          type: number
+        style: form
+      - description: Saturation multiplier
+        explode: true
+        in: query
+        name: saturation
+        required: false
+        schema:
+          format: float
+          type: number
+        style: form
+      - description: Hue rotation in degrees
+        explode: true
+        in: query
+        name: hue
+        required: false
+        schema:
+          type: integer
+        style: form
+      - description: Lightness addend
+        explode: true
+        in: query
+        name: lightness
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: html
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: json
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            image/*:
+              schema:
+                format: binary
+                type: string
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cat_random_200_response'
+          description: Cat returned
+      tags:
+      - Cats
+  /api/cats:
+    get:
+      description: Will return all cats
+      operationId: api:cats
+      parameters:
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 10
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          default: 0
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: tags
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/cat_random_200_response'
+                type: array
+          description: List of cats
+      tags:
+      - API
+  /api/tags:
+    get:
+      description: Will return all tags
+      operationId: api:tags
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: List of tags
+      tags:
+      - API
+  /api/count:
+    get:
+      description: Count how many cat
+      operationId: api:count
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api_count_200_response'
+          description: List of tags
+      tags:
+      - API
+  /security/sign-in:
+    post:
+      operationId: api:security:sign-in
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_security_sign_in_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api_security_sign_in_200_response'
+          description: Authenticated
+        "401":
+          description: Unauthorized
+      tags:
+      - Security
+  /security/sign-up:
+    post:
+      operationId: api:security:sign-up
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_security_sign_up_request'
+      responses:
+        "201":
+          description: Registered
+        "400":
+          description: Bad request
+      tags:
+      - Security
+components:
+  schemas:
+    AdminCat:
+      properties:
+        _id:
+          type: string
+        validated:
+          type: boolean
+        file:
+          type: string
+        mimetype:
+          type: string
+        size:
+          type: number
+        tags:
+          default: []
+          items:
+            type: string
+          type: array
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - file
+      - tags
+      - validated
+      type: object
+    Cat:
+      properties:
+        _id:
+          type: string
+        mimetype:
+          type: string
+        size:
+          type: number
+        tags:
+          default: []
+          items:
+            type: string
+          type: array
+      required:
+      - file
+      - tags
+      type: object
+    EditCat:
+      properties:
+        tags:
+          default: []
+          items:
+            type: string
+          type: array
+      required:
+      - tags
+      type: object
+    Error:
+      properties:
+        message:
+          type: string
+        code:
+          type: number
+      type: object
+    SignIn:
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      required:
+      - name
+      - password
+      type: object
+    SignUp:
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+        secret:
+          type: string
+      required:
+      - mail
+      - name
+      - password
+      - secret
+      type: object
+    Token:
+      properties:
+        token:
+          type: string
+      type: object
+    admin_cats_browse_200_response_inner:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        file: file
+        validated: true
+        size: 0.8008281904610115
+        mimetype: mimetype
+        _id: _id
+        tags:
+        - tags
+        - tags
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        _id:
+          type: string
+        validated:
+          type: boolean
+        file:
+          type: string
+        mimetype:
+          type: string
+        size:
+          type: number
+        tags:
+          default: []
+          items:
+            type: string
+          type: array
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - file
+      - tags
+      - validated
+      type: object
+    admin_cats_edit_request:
+      properties:
+        tags:
+          type: string
+      type: object
+    cat_random_200_response:
+      example:
+        size: 0.8008281904610115
+        mimetype: mimetype
+        _id: _id
+        tags:
+        - tags
+        - tags
+      properties:
+        _id:
+          type: string
+        mimetype:
+          type: string
+        size:
+          type: number
+        tags:
+          default: []
+          items:
+            type: string
+          type: array
+      required:
+      - file
+      - tags
+      type: object
+    api_count_200_response:
+      example:
+        count: 0.8008281904610115
+      properties:
+        count:
+          type: number
+      type: object
+    api_security_sign_in_request:
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      required:
+      - name
+      - password
+      type: object
+    api_security_sign_in_200_response:
+      example:
+        token: token
+      properties:
+        token:
+          type: string
+      type: object
+    api_security_sign_up_request:
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+        secret:
+          type: string
+      required:
+      - mail
+      - name
+      - password
+      - secret
+      type: object
+  securitySchemes:
+    jwt:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
