@@ -3,11 +3,15 @@ name: Generate Go SDK
 on:
   push:
     branches: [ "main" ]
-    paths: [ "docs/**.json" ]
+    paths: [ "openapi/**.json" ]
   workflow_dispatch:
 
 env:
+  FOLDER_NAME: "openapi"
   FILE_NAME: "cataas"
+  USER_ID: "mccallry"
+  REPO_ID: "cataas-go-sdk"
+  GEN_DIR: go-client
 
 permissions: write-all
 
@@ -22,15 +26,38 @@ jobs:
         uses: fabasoad/data-format-converter-action@v0
         id: json2yaml
         with:
-          input: "docs/${{ env.FILE_NAME }}.json"
+          input: "${{ env.FOLDER_NAME }}/${{ env.FILE_NAME }}.json"
           from: "json"
           to: "yaml"
       - name: Save YAML to File
         run: |
-          echo "${{ steps.json2yaml.outputs.output }}" > "docs/${{ env.FILE_NAME }}.yaml"
-      - name: Commit Generated Files
+          echo "${{ steps.json2yaml.outputs.output }}" > "${{ env.FOLDER_NAME }}/${{ env.FILE_NAME }}.yaml"
+      - name: Commit Updated YAML File
         uses: EndBug/add-and-commit@v9
         with:
           add: "."
           default_author: github_actions
           message: "Update YAML File"
+  generate-sdk:
+    runs-on: ubuntu-latest
+    name: Generate Go SDK
+    needs: json-to-yaml
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Generate Go Client
+        uses: openapi-generators/openapitools-generator-action@v1
+        with:
+          generator: go
+          openapi-file: "${{ env.FOLDER_NAME }}/${{ env.FILE_NAME }}.yaml"
+          command-args: "-p enumClassPrefix=true -p disallowAdditionalPropertiesIfNotPresent=false --git-user-id ${{ env.USER_ID }} --git-repo-id ${{ env.REPO_ID }}"
+      - name: Move Generated Files
+        run: |
+          mv -v ./${{ env.GEN_DIR }}/README.md ./README.GEN.md
+          mv -v ./${{ env.GEN_DIR }}/* ./
+      - name: Commit Generated SDK Files
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "."
+          default_author: github_actions
+          message: "Update Go SDK"
