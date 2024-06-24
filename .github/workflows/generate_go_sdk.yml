@@ -58,8 +58,8 @@ jobs:
           command-args: "-p enumClassPrefix=true -p disallowAdditionalPropertiesIfNotPresent=false --git-user-id ${{ env.USER_ID }} --git-repo-id ${{ env.REPO_ID }}"
       - name: Move Generated Files
         run: |
-          mv -v ./${{ env.GEN_DIR }}/README.md ./README.GEN.md
-          mv -v ./${{ env.GEN_DIR }}/* ./
+          mv -vf ./${{ env.GEN_DIR }}/README.md ./README.GEN.md
+          mv -vf ./${{ env.GEN_DIR }}/* ./
       - name: Go Tidy
         run: go mod tidy
       - name: Format Go Code
