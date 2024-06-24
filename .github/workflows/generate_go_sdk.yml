@@ -55,7 +55,7 @@ jobs:
         with:
           generator: go
           openapi-file: "${{ env.FOLDER_NAME }}/${{ env.FILE_NAME }}.yaml"
-          command-args: "-p enumClassPrefix=true -p disallowAdditionalPropertiesIfNotPresent=false --git-user-id ${{ env.USER_ID }} --git-repo-id ${{ env.REPO_ID }}"
+          command-args: "-o ./${{ env.GEN_DIR }} -p enumClassPrefix=true -p disallowAdditionalPropertiesIfNotPresent=false --git-user-id ${{ env.USER_ID }} --git-repo-id ${{ env.REPO_ID }}"
       - name: Move Generated Files
         run: |
           rm -rf ./api ./docs ./test
