@@ -1,0 +1,23 @@
+name: Convert JSON to YAML
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: [ "docs/test.json" ]
+  workflow_dispatch:
+permissions: write-all
+jobs:
+  generate-go-client:
+    runs-on: ubuntu-latest
+    name: Generate Go Client
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: fabasoad/data-format-converter-action@v0
+        id: json2yaml
+        with:
+          input: "docs/test.json"
+          from: "json"
+          to: "yaml"
+      - name: Print result
+        run: echo "${{ steps.json2yaml.outputs.output }}"
