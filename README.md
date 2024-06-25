@@ -29,10 +29,10 @@ go get github.com/mccallry/cataas-go-sdk
 ```
 
 ## About The Project
-The `cataas-go-sdk` is based off the [CATAAS][link-cataas] API, which provides the ability to receive a randomly selected cat picture. This SDK was generated using [OpenAPI Generator][link-openapi-generator].
+The `cataas-go-sdk` is built on top of the [CATAAS][link-cataas] API, which provides the ability to receive a randomly selected cat picture. This SDK was generated using [OpenAPI Generator][link-openapi-generator].
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+
 * [Cataas][link-cataas]
 * [Go][link-go]
 * [OpenAPI](https://www.openapis.org/)
