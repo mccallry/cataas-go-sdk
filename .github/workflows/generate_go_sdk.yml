@@ -60,6 +60,14 @@ jobs:
         run: |
           sed -i 's/R(r int32)/R(red int32)/g' ./${{ env.GEN_DIR }}/api_cats.go
           sed -i 's/r.r = \&r/r.r = \&red/g' ./${{ env.GEN_DIR }}/api_cats.go
+
+          sed -i 's/func selectHeaderAccept(accepts \[\]string)/func selectHeaderAccept(accepts \[\]string, d string)/' ./${{ env.GEN_DIR }}/client.go
+          sed -i 's|if contains(accepts, "application/json")|if d != \"\" {\n\t\treturn d\n\t}\n\n\tif contains(accepts, "application/json")|' ./${{ env.GEN_DIR }}/client.go
+
+          sed -i 's/selectHeaderAccept(localVarHTTPHeaderAccepts)/selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader\["Accept"\])/g' ./${{ env.GEN_DIR }}/api_api.go
+          sed -i 's/selectHeaderAccept(localVarHTTPHeaderAccepts)/selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader\["Accept"\])/g' ./${{ env.GEN_DIR }}/api_security.go
+          sed -i 's/selectHeaderAccept(localVarHTTPHeaderAccepts)/selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader\["Accept"\])/g' ./${{ env.GEN_DIR }}/api_admin.go
+          sed -i 's/selectHeaderAccept(localVarHTTPHeaderAccepts)/selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader\["Accept"\])/g' ./${{ env.GEN_DIR }}/api_cats.go
       - name: Move Generated Files
         run: |
           rm -rf ./api ./docs ./test
