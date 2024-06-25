@@ -68,6 +68,8 @@ jobs:
           sed -i 's/selectHeaderAccept(localVarHTTPHeaderAccepts)/selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader\["Accept"\])/g' ./${{ env.GEN_DIR }}/api_security.go
           sed -i 's/selectHeaderAccept(localVarHTTPHeaderAccepts)/selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader\["Accept"\])/g' ./${{ env.GEN_DIR }}/api_admin.go
           sed -i 's/selectHeaderAccept(localVarHTTPHeaderAccepts)/selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader\["Accept"\])/g' ./${{ env.GEN_DIR }}/api_cats.go
+
+          sed -i 's/README.md/README.GEN.md/g' ./${{ env.GEN_DIR }}/docs/*.md
       - name: Move Generated Files
         run: |
           rm -rf ./api ./docs ./test
