@@ -240,7 +240,7 @@ func (a *CatsAPIService) CatGetExecute(r ApiCatGetRequest) (*os.File, *http.Resp
 	localVarHTTPHeaderAccepts := []string{"image/*", "application/json"}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
@@ -550,7 +550,7 @@ func (a *CatsAPIService) CatGetTextExecute(r ApiCatGetTextRequest) (*os.File, *h
 	localVarHTTPHeaderAccepts := []string{"image/*", "application/json"}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
@@ -804,7 +804,7 @@ func (a *CatsAPIService) CatRandomExecute(r ApiCatRandomRequest) (*os.File, *htt
 	localVarHTTPHeaderAccepts := []string{"image/*", "application/json"}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
@@ -1062,7 +1062,7 @@ func (a *CatsAPIService) CatRandomTagExecute(r ApiCatRandomTagRequest) (*os.File
 	localVarHTTPHeaderAccepts := []string{"image/*", "application/json"}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
@@ -1372,7 +1372,7 @@ func (a *CatsAPIService) CatRandomTagTextExecute(r ApiCatRandomTagTextRequest) (
 	localVarHTTPHeaderAccepts := []string{"image/*", "application/json"}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
@@ -1678,7 +1678,7 @@ func (a *CatsAPIService) CatRandomTextExecute(r ApiCatRandomTextRequest) (*os.Fi
 	localVarHTTPHeaderAccepts := []string{"image/*", "application/json"}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}

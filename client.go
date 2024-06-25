@@ -97,9 +97,13 @@ func selectHeaderContentType(contentTypes []string) string {
 }
 
 // selectHeaderAccept join all accept types and return
-func selectHeaderAccept(accepts []string) string {
+func selectHeaderAccept(accepts []string, d string) string {
 	if len(accepts) == 0 {
 		return ""
+	}
+
+	if d != "" {
+		return d
 	}
 
 	if contains(accepts, "application/json") {

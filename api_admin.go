@@ -99,7 +99,7 @@ func (a *AdminAPIService) AdminCatsBrowseExecute(r ApiAdminCatsBrowseRequest) ([
 	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
@@ -200,7 +200,7 @@ func (a *AdminAPIService) AdminCatsDeleteExecute(r ApiAdminCatsDeleteRequest) (*
 	localVarHTTPHeaderAccepts := []string{}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
@@ -298,7 +298,7 @@ func (a *AdminAPIService) AdminCatsEditExecute(r ApiAdminCatsEditRequest) (*http
 	localVarHTTPHeaderAccepts := []string{}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
@@ -392,7 +392,7 @@ func (a *AdminAPIService) AdminCatsValidateExecute(r ApiAdminCatsValidateRequest
 	localVarHTTPHeaderAccepts := []string{}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}

@@ -84,7 +84,7 @@ func (a *SecurityAPIService) ApiSecuritySignInExecute(r ApiApiSecuritySignInRequ
 	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
@@ -187,7 +187,7 @@ func (a *SecurityAPIService) ApiSecuritySignUpExecute(r ApiApiSecuritySignUpRequ
 	localVarHTTPHeaderAccepts := []string{}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}

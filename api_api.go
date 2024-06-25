@@ -113,7 +113,7 @@ func (a *APIAPIService) ApiCatsExecute(r ApiApiCatsRequest) ([]CatRandom200Respo
 	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
@@ -213,7 +213,7 @@ func (a *APIAPIService) ApiCountExecute(r ApiApiCountRequest) (*ApiCount200Respo
 	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
@@ -313,7 +313,7 @@ func (a *APIAPIService) ApiTagsExecute(r ApiApiTagsRequest) ([]string, *http.Res
 	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts, a.client.cfg.DefaultHeader["Accept"])
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
