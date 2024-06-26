@@ -19,6 +19,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Get Package Version
         run: echo "FILE_VERSION=$(jq .info.version ./${{ env.FOLDER_NAME }}/${{ env.FILE_NAME }}.json)" >> $GITHUB_ENV
+      - name: Echo ENV
+        run: echo $FILE_VERSION
   create-tag:
     runs-on: ubuntu-latest
     name: Create Tag
