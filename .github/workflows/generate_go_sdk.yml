@@ -14,7 +14,8 @@ env:
   GEN_DIR: go-client
   GO_VERSION: 1.18.0
 
-permissions: write-all
+permissions:
+  contents: write
 
 jobs:
   json-to-yaml:
