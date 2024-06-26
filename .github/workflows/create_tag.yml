@@ -26,5 +26,13 @@ jobs:
     name: Create Tag
     needs: get-version
     steps:
-      - name: Echo ENV
-        run: echo ${{ needs.get-version.outputs.FILE_VERSION }}
+      - name: Create GitHub Tag
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/v${{ needs.get-version.outputs.FILE_VERSION }}',
+              sha: context.sha
+            })
