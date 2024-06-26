@@ -9,7 +9,6 @@ on:
 env:
   FOLDER_NAME: "openapi"
   FILE_NAME: "cataas"
-  FILE_VERSION: "0.0.0"
   USER_ID: "mccallry"
   REPO_ID: "cataas-go-sdk"
   GEN_DIR: go-client
@@ -87,14 +86,3 @@ jobs:
           add: "."
           default_author: github_actions
           message: "Update Go SDK"
-  create-release:
-    runs-on: ubuntu-latest
-    name: Generate Go SDK
-    needs: generate-sdk
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Get Package Version
-        run: echo "FILE_VERSION=$(jq .info.version ./${{ env.FOLDER_NAME }}/${{ env.FILE_NAME }}.json)" >> $GITHUB_ENV
-      - name: Echo ENV
-        run: echo $FILE_VERSION
