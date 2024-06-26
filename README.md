@@ -52,6 +52,9 @@ In either case, the API returns three values:
 When working with an image response, both the File and Response structs are able to be used to save or manipulate the file; however, in the case that a JSON response is expected, it is recommended to simply use the Response struct.
 
 #### Image: os.File
+<details>
+<summary>Retrieve Image from os.File</summary>
+
 ```go
 package main
 
@@ -104,8 +107,12 @@ func main() {
 ```
 
 _For more examples, please refer to the [Documentation](./README.GEN.md)_
+</details>
 
-#### Image: Raw Response
+#### Image: HTTP Response
+<details>
+<summary>Retrieve Image from HTTP Response</summary>
+
 ```go
 package main
 
@@ -153,8 +160,12 @@ func main() {
 ```
 
 _For more examples, please refer to the [Documentation](./README.GEN.md)_
+</details>
 
-#### JSON: Raw Response
+#### JSON: HTTP Response
+<details>
+<summary>Retrieve JSON from HTTP Response</summary>
+
 ```go
 package main
 
@@ -194,9 +205,13 @@ func main() {
 ```
 
 _For more examples, please refer to the [Documentation](./README.GEN.md)_
+</details>
 
 ### API
 The API API (which is a very fun name!) allows for the retrieval of bulk JSON metadata to be returned as a response. This includes retrieving a random list of cats, viewing the existing tags, or getting the count of cats images available via the API.
+
+<details>
+<summary>Retrieve API Metadata</summary>
 
 ```go
 package main
@@ -223,6 +238,7 @@ func main() {
 ```
 
 _For more examples, please refer to the [Documentation](./README.GEN.md)_
+</details>
 
 ### Security and Admin
 Both security and administration are restricted functions that are not available for public consumption and require authorization.
