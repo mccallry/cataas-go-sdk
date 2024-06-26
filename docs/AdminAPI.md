@@ -67,16 +67,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[jwt](../README.GEN.md#jwt)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.GEN.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.GEN.md#documentation-for-models)
+[[Back to README]](../README.GEN.md)
 
 
 ## AdminCatsDelete
@@ -135,16 +135,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[jwt](../README.GEN.md#jwt)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.GEN.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.GEN.md#documentation-for-models)
+[[Back to README]](../README.GEN.md)
 
 
 ## AdminCatsEdit
@@ -205,16 +205,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[jwt](../README.GEN.md#jwt)
 
 ### HTTP request headers
 
 - **Content-Type**: application/json
 - **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.GEN.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.GEN.md#documentation-for-models)
+[[Back to README]](../README.GEN.md)
 
 
 ## AdminCatsValidate
@@ -273,14 +273,14 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[jwt](../README.GEN.md#jwt)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.GEN.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.GEN.md#documentation-for-models)
+[[Back to README]](../README.GEN.md)
 

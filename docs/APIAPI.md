@@ -75,9 +75,9 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.GEN.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.GEN.md#documentation-for-models)
+[[Back to README]](../README.GEN.md)
 
 
 ## ApiCount
@@ -136,9 +136,9 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.GEN.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.GEN.md#documentation-for-models)
+[[Back to README]](../README.GEN.md)
 
 
 ## ApiTags
@@ -197,7 +197,7 @@ No authorization required
 - **Content-Type**: Not defined
 - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.GEN.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.GEN.md#documentation-for-models)
+[[Back to README]](../README.GEN.md)
 
