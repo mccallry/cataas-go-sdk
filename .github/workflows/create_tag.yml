@@ -6,7 +6,6 @@ on:
 env:
   FOLDER_NAME: "openapi"
   FILE_NAME: "cataas"
-  FILE_VERSION: "0.0.0"
 
 permissions: write-all
 
@@ -14,17 +13,18 @@ jobs:
   get-version:
     runs-on: ubuntu-latest
     name: Get OpenAPI Version
+    outputs:
+      FILE_VERSION: ${{ steps.get-package-version.outputs.FILE_VERSION }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Get Package Version
-        run: echo "FILE_VERSION=$(jq .info.version ./${{ env.FOLDER_NAME }}/${{ env.FILE_NAME }}.json)" >> $GITHUB_ENV
-      - name: Echo ENV
-        run: echo $FILE_VERSION
+        id: get-package-version
+        run: echo "FILE_VERSION=$(jq .info.version ./${{ env.FOLDER_NAME }}/${{ env.FILE_NAME }}.json)" >> $GITHUB_OUTPUT
   create-tag:
     runs-on: ubuntu-latest
     name: Create Tag
     needs: get-version
     steps:
       - name: Echo ENV
-        run: echo $FILE_VERSION
+        run: echo ${{ needs.get-version.outputs.FILE_VERSION }}
