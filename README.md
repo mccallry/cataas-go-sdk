@@ -12,7 +12,7 @@
     <br />
 </p>
 
-[![Go Report Card][badge-go-report-card]](url-go-report-card)
+[![Go Report Card][badge-go-report-card]][url-go-report-card]
 [![MIT License][badge-license]][url-license]
 [![Go Reference][badge-go-reference]][url-go-reference]
 
