@@ -56,7 +56,7 @@ jobs:
         with:
           generator: go
           openapi-file: "${{ env.FOLDER_NAME }}/${{ env.FILE_NAME }}.yaml"
-          command-args: "-o ./${{ env.GEN_DIR }} -p enumClassPrefix=true -p disallowAdditionalPropertiesIfNotPresent=false --git-user-id ${{ env.USER_ID }} --git-repo-id ${{ env.REPO_ID }}"
+          command-args: "-o ./${{ env.GEN_DIR }} -p enumClassPrefix=true -p disallowAdditionalPropertiesIfNotPresent=false -p packageName=cataas --git-user-id ${{ env.USER_ID }} --git-repo-id ${{ env.REPO_ID }}"
       - name: Fix Generation Errors
         run: |
           sed -i 's/R(r int32)/R(red int32)/g' ./${{ env.GEN_DIR }}/api_cats.go
